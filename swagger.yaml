@@ -1,718 +1,1804 @@
----
-swagger: "2.0"
+openapi: 3.0.0
 info:
-  description: "This is a sample server Petstore server.  You can find out more about\
-    \ Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).\
-    \  For this sample, you can use the api key `special-key` to test the authorization\
-    \ filters."
-  version: "1.0.5"
-  title: "Swagger Petstore"
-  termsOfService: "http://swagger.io/terms/"
+  title: Verificar Teléfonos
+  description: |
+    # Verificar Teléfonos ®
+
+    The Phone Verification API allows real-time validation of the authenticity of a phone number. The Phone Verification API allows real-time validation of the authenticity of a phone number.
+
+    We have 3 methods to verify phone numbers:
+
+      - HLR Verification
+      - MNP Verification
+      - Syntactic Verification
+
+    For mobile phone validations (HLR, MNP), we use a method that queries mobile networks to determine the operator and see if the number is active. We provide information about portability (current network and issuing network).
+
+    With our verification service, you can keep your database clean by eliminating all inactive and false numbers, and communicate with your customers reliably. All these verifications are performed without the user receiving a call or SMS.
+
+    The API is capable of identifying the type of number, differentiating between mobile and landline. It shows the result for each of the verifications.
+
+    You can verify phone numbers on your website or application with our API, through our web application, with Zapier integrations, or our Widget. All in real-time.
+
+
+    
+    ## Bulk Verifications
+    To verify a high volume of phone numbers, we must group the numbers in a CSV, TXT, or Excel file. Each row should contain a phone number with the international prefix.
+
+
+
+    ## Easy Integration
+    We speak your programming language. Calls to our API are available for PHP, Python, Node.js, and .net. You can use <a href="https://www.verificaremails.com/servicio-verificar-emails/como-utilizar-zapier-verificar-emails/" target="_blank">** Zapier integration**</a> to automate phone number validations without the need for programming.
+    
+    If you prefer, you can use <a href="https://www.verificaremails.com/kb/utilizar-postman-para-el-api-de-verificaremails/" target="_blank">**Postman with code examples**</a> for most programming languages.
+
+    # Getting Started
+    In the following points, discover how to use Validaremails to verify your phone numbers in a simple, economical, and effective way, and obtain detailed reports of your contacts
+
+ 
+
+    ## Create an account on Verificaremails ®:
+    To use the service, you must create a free account on Verificaremails:
+    <a href="https://dashboard.verificaremails.com/app/public/register" target="_blank">**create a free account on Verificaremails**</a>
+
+    ![Sign Up Page](static/images/signup.png)
+
+    ## Verify Phone Numbers:
+  
+    Once you have created your free account, you must log in to start using the *Verificaremails ®* service. 
+
+    If you want to verify phones individually, you just need to enter the phone number in the **Quick Request** field.
+
+      ![Bulk Email Verification](static/images/telefonos_peticion_rapida.png)
+
+    If you want to verify a list of phone numbers, the fastest way is to use file verification. You just need to drag the file to the orange box you'll find on the main screen and select which column the emails are in. The first column is 1 and so on.
+
+    You can upload files in Excel, TXT and CSV format. The important thing is that the information is organized in columns. Before verifying a file, make sure the information is organized in columns as we will deduct one credit from your account for each record regardless of the value we verify.
+
+    As a security mechanism, if there are not more than 50% phone numbers in the column, **we will not launch the verification**.
+
+    If an error is displayed during file upload, in most cases it is due to an error in the data format. Make sure the information is properly tabulated. If you still need help, you can contact us through the chat you'll find in the bottom right corner.
+
+    ![Bulk Email Verification](static/images/bulk-email-verification.png)
+
+    ## Verify Phone Numbers using the API to Validate Phone ®:
+    You can use our API to validate phone numbers from your applications in real time.
+
+    Using our API only requires a few lines of code. For more details
+    visit the [**API Developers**](#section/Getting-Started/API-Developers) section.
+
+    Before you can use the API you must create one ;-) 
+
+    Go to the **APIs** section and select **+Create new API**. Make sure you are in the section of the service you want to use.
+
+    By selecting the "eye" icon you will see the last validated records. By selecting the "wheel" icon you can change the API key and limit the total requests, requests per minute that the API can receive or its status.
+
+    Remember that you can use the API in your developments, in Zapier integrations, our <a href="https://www.verificaremails.com/kb/como-utilizar-el-widget-para-validar-formularios/" target="_blank">Widget</a> or verification with third-party applications such as Excel or Google Sheets.
+
+    Our API allows you to validate individual phone addresses or validate
+    lists of numbers by uploading files to our platform.
+
+    # How Verificar Emails ® works:
+    We have 3 mechanisms to verify phone numbers. The most accurate verification is HLR number verification, the one that provides an intermediate degree of accuracy is MNP number verification. The simplest verification is the one that only syntactically verifies the phone number.
+
+    All 3 mechanisms use the same fields, the main difference is in the number of fields returned and the accuracy of the training.
+
+    **HLR phone verification**
+
+    It is the most accurate method of phone number verification. It allows you to know if a number is currently connected to the mobile network. Validate the status and details of mobile numbers in real time. The term "HLR" stands for Home Location Register, a central database that contains details of each mobile subscriber authorized by a GSM network. The HLR lookup, therefore, is a way to access this information to ensure the validity and availability of a mobile number. This technology offers the highest degree of accuracy, as a counterpart it has the highest verification cost.
+
+      **MNP phone verification**
+
+    Mobile Number Portability (MNP) lookup verification is a process used to validate numbers and ensure accurate identification of network providers.
+
+     MNP lookup helps determine the current operator of a mobile number. Businesses use this information to route SMS messages accurately and cost-effectively.
+
+     MNP verification offers a compromise between the degree of accuracy and the cost of each validation. It can be used as an indirect mechanism for phone verification.
+  
+      **Syntactic phone number verification**
+  
+      Syntactic verification of phone numbers ensures the accuracy and consistency of phone numbers.
+  
+     It consists of checking the structure and format of the phone number to ensure that it conforms to a specific pattern or set of rules. This process helps identify and correct errors.
+  
+      This type of verification is the most economical, but at the cost of obtaining less information from the verified numbers.
+  
+      ![Sign Up Page](static/images/tipos_verificacion_telefonos.png)
+  
+      # Verify Files:
+     *Verificar Emails ®* offers different ways to import contact files 
+      for verification. You can upload CSV, XLS, XLSX and TXT files 
+     from your local computer.
+
+    ![File Upload](static/images/file-upload.png)
+  
+    To upload a file, go to the **_Dashboard_** or **_Validation_** section. Using the orange box, select the files to verify. You can also drag and drop files from your computer.
+
+    Once the files have been uploaded, they will be visible in the **_UPLOADED FILES_** section.
+    New files will start their validation automatically. **IMPORTANT:** Once you start the validation process, it cannot be canceled. Make sure the emails are correctly tabulated in your file. Once the verification process is finished, you will receive an email message to proceed with downloading the verified file.
+
+    While uploading a file make sure the following conditions are met:
+
+    * The phone numbers are in a single column.
+    * The phone numbers must appear in the same column in the different rows.
+    * We recommend that the list be less than 250,000 phone numbers. To optimize speed we recommend lists of less than 100,000 records.
+    * The field names should appear in the first row of the file to be able to
+    categorize the different fields.
+    * For confidentiality reasons, validated files will be deleted from our server after 30 days, leaving only a summary of the verification. You must save the verified data in your environment.
+
+    In the image below you have an example of what the file to be validated should look like:
+  
+    ![File Upload 4](static/images/file-upload4-tel.png)
+    
+      If you're not sure your data is well formatted, upload only a part of your contacts and do a test with about 5 emails. The credits you consume in verifications with invalid records cannot be refunded.
+    
+      If your file is not well formatted, copy the column of phone numbers into a notepad or a new Excel sheet and validate only the emails.
+      Once verified, you will have 2 columns, one containing the phone number and the verification result. You can copy these values back into your original Excel file.
+    
+      Once the file has been processed by *Verificaremails ®*, the **_Status_** column appears
+      to categorize the status of the emails. The only 100% safe phones are the "connected" ones. In the "Result" column you can see the details of the verification. You can read more about this topic in
+      the [**Results Guide**](#section/Results-Guide) section.
+
+    The processed lists look like this:
+
+    ![File Upload 5](static/images/file-upload5-tel.png)
+
+    # Download and Export Results:
+    Once your list has been verified, you will receive an email. The file format will be the same as you uploaded, but with 2 additional columns ("status" and "result").
+
+    # Results Guide:
+      *Verificaremails ®* the response of the calls, comes in JSON format to be able to exploit the data 
+      comfortably (Excel allows converting the JSON format into columns to facilitate the exploitation of the 
+      data).
+
+    | id                                | Type        |Null Value          | Description                                                                            |
+    |-----------------------------------|-------------|--------------------|----------------------------------------------------------------------------------------|
+    | id                                | string      |                    | Unique ID of the request.                                                               |
+    | cost                              | float       |                    | Number of tokens used in the verification.                                        |
+    | phone_number                      | string      |                    | Phone number in E.164 format.                                            |
+    | number_type                       | string      |                    | Type of phone number (landline or mobile) Number types                                 |
+    | timezone                          | string      |                    | Time zone where the number was originally assigned. In no case does it trace the time zone where the user is located at the time of verification.                                        |
+    | is_ported                         | bool        | ✓                  | Indicates if the number has been ported. It shows null if this information is not available.                     |
+    | reachable                         | string      |                    | The accessibility is indicated at the precise moment of verification. For more information see Reachability State.                                       |
+    | imsi                              | string                                        | ✓       | International Mobile Subscriber Identity (IMSI). Unique identifier associated with the SIM card. The availability of the IMSI depends on the mobile operator of the card.                                        |
+    | format.e164                       | string                                        |        | The number in E.164 format.                                       |
+    | format.international              | string                                        |        | The number in international format.                                       |
+    | format.national                   | string                                        |        | The number in national format.                                      |
+    | format.rfc3966                    | string                                        |        | The number formatted in RFC3966 format.                                       |
+    | original_network.country_iso2     | string                                        |        | The Country Code (ISO2) where the number was originally assigned.                                       |
+    | original_network.country_prefix   | string                                        |        | The international calling prefix where the number was originally assigned.                                       |       
+    | original_network.area             | string                                        | ✓       | The name of the area where the number was assigned.                                       |
+    | original_network.mccmnc           | string                                        | ✓       | Five or six character MCCMNC (mobile country code + mobile network code tuple) identifying the original network that issued the number.                                       |
+    | original_network.mcc              | string                                        | ✓       | Three character MCC (mobile country code) identifying where the network where the number was issued.                                      |
+    | original_network.mnc              | string                                        | ✓       | Two or three character MNC (mobile network code) identifying the network where the number was issued.                                       |
+    | original_network.network_name     | string                                        | ✓       | Name of the operator that issued the number, if this information is available.                                       |
+    | current_network.country_iso2      | string                                        | ✓       | Country code (ISO2) where the number is currently assigned.                                        |
+    | current_network.country_prefix    | string                                        |        | The international prefix where the number is currently assigned.                                       |       
+    | current_network.area              | string                                        | ✓       | Name of the area where the number is currently assigned, if this information is available.                                       |
+    | current_network.mccmnc            | string                                        |✓       | Five or six character MCCMNC (mobile country code + mobile network code tuple) identifying the network where the number currently belongs.                                        |
+    | current_network.mcc               | string                                        | ✓       | Three character MCC (mobile country code) identifying the country where the number currently belongs.                                       |
+    | current_network.mnc               | string                                        | ✓       | Two or three character MNC (mobile network code) identifying the network where the number currently belongs.                                       |
+    | current_network.network_name      | string                                        |    ✓       | The name of the operator where the number is currently assigned, if this information is available.                                       |
+        
+    If the number we are trying to verify is a landline, the response we get is:
+      
+    | id              | Type           |Null Value          | Description                                                                            |
+    |-----------------|----------------|--------------------|----------------------------------------------------------------------------------------|
+    | id                                | string                                        |        | Unique ID of the request.                          |
+    | cost                              | float                                         |        | Number of tokens used in the verification.  |
+    | phone_number                      | string                                        |        | Phone number in E.164 format.                                      |
+    | number_type                       | string                                        |        | Type of phone number (landline or mobile) Number types                           |
+    | timezone                          | string                                        |        | Time zone where the number was originally assigned. In no case does it trace the time zone where the user is located at the time of verification.                                        |
+    | format.e164                       | string                                        |        | The number in E.164 format.                                       |
+    | format.international              | string                                        |        | The number in international format.                                       |
+    | format.national                   | string                                        |        | The number in national format.                                      |
+    | format.rfc3966                    | string                                        |        | The number formatted in RFC3966 format.                                       |
+    | original_network.country_iso2     | string                                        |        | The Country Code (ISO2) where the number was originally assigned.               
+    | original_network.country_prefix   | string                                        |        | The international calling prefix where the number was originally assigned. |  
+    | original_network.area             | string                                        |✓       | The name of the area where the number was assigned.                                 |
+    | original_network.network_name     | string                                        |✓       | The original operator that assigned the number.                                       |
+       
+    For each valid number processed through the phone verification API, we will return information about the current accessibility status of the number. With this information, you can determine if the number is currently active and locatable.
+      
+    | State                     | Description                                                                            |
+    |----------------------------|----------------------------------------------------------------------------------------|
+    | connected                  | Active mobile number.                                       |
+    | absent                     | The number is not accessible at this time. For more details check the Absent Subscribers table                                               |
+    | no-teleservice-provisioned | The number cannot receive calls or SMS messages. These are usually numbers associated with a data SIM card. |
+    | inconclusive               | We cannot get a response from the network for this number. The network does not provide this information.                           |
+    | missing parameters         | There are no validations remaining to complete this attempt.                           |
+    | no-coverage failed          | There are no validations remaining to complete this attempt.                           | 
+      
+      
+    ## Absent Subscriber
+       
+    If your reachability property returns that the number is "absent subscriber" (absent), then there are several possible reasons for this.
+       <br><br>
+       * The phone is turned off and a call was made to the number during this period. When an attempt to connect to a number fails because it is turned off, has no signal or is in airplane mode, then the API call will be updated to an Absent Subscriber status to reflect that calls cannot currently connect or SMS cannot be sent to that number. When the phone is turned back on, it will connect to a cell tower and the API will update and mark that the number is reachable.
+       <br><br>
+       * A long period of inactivity on the number. Each network operator has different thresholds when updating the API database to show a mobile number as "absent". Usually, if a number has not been activated on a phone for more than 4 days, it will be considered as Absent and a lookup will reflect this.
+       <br><br>
+       * The number has been assigned to a SIM card but has not yet been connected (for example, a phone number that is still in a store waiting to be sold).
+
+    ## Number Types
+        
+    For each valid number processed through the number verification API, we will return information about the 
+      current accessibility status of the number. With this information, you can determine if the number is currently 
+      active and locatable.
+        
+      | Type                       | Description                                                                             |
+      |-----------------------------|----------------------------------------------------------------------------------------|
+      | landline                    | Landline phone number.                                                               |
+      | mobile                      | Mobile phone number.                                                              |
+      | mobile_or_landline          | Landline or mobile number.                                                                   |
+      | toll_free                   | Toll-free phone number.                                                           |
+      | premium_rate                | Premium phone number with extra charges                                            |
+      | shared_cost                 | Shared cost phone number. Usually less expensive than premium rate phone
+    
+    
+    
+    
+
+
+    # Autenticación API
+    Para utilizar nuestra API necesitas unas credenciales. Puedes obtener tu
+    API key visitando la sección **API** en tu dashboard.
+    <!-- ReDoc-Inject: <security-definitions> -->
+
+  termsOfService: http://verificaremails.com/terms.html
   contact:
-    email: "apiteam@swagger.io"
-  license:
-    name: "Apache 2.0"
-    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
-host: "petstore.swagger.io"
-basePath: "/v2"
+    name: Support
+    url: https://www.verificaremails.com/#FAQ
+    email: contactar@verificaremails.com
+  version: "1.0.0"
+
+servers:
+  - url: https://dashboard.verificaremails.com/myapi
+
 tags:
-- name: "pet"
-  description: "Everything about your Pets"
-  externalDocs:
-    description: "Find out more"
-    url: "http://swagger.io"
-- name: "store"
-  description: "Access to Petstore orders"
-- name: "user"
-  description: "Operations about user"
-  externalDocs:
-    description: "Find out more about our store"
-    url: "http://swagger.io"
-schemes:
-- "https"
-- "http"
+  - name: HLR Validation API
+    description: |
+      **Verificar Emails** provides a developer API to integrate
+      the HLR Phone Verification process with your service.
+
+      Our API provides the ability to check individual phone numbers
+      and can accept a phone list through file upload.
+  
+  - name: MNP Validation API
+    description: |
+      **Verificar Emails** provides a developer API to integrate
+      the MNP Phone verification process with your service.
+
+      Our API provides the ability to check individual phone numbers
+      and can accept a phone list through file upload.
+      
+  - name: Syntax Validation API
+    description: |
+      **Verificar Emails** provides a developer API to integrate
+      the syntax phone verification process with your service.
+
+      Our API provides the ability to check individual phone numbers
+      and can accept a phone list through file upload.
+
+x-tagGroups:
+  - name: Developer API
+    tags:
+      - HLR Validation API
+      - MNP Validation API
+      - Syntax Validation API
+
 paths:
-  /pet/{petId}/uploadImage:
+  /phone/validate/single:
+    get:
+      security:
+        - APIKey: []
+      tags:
+        - HLR Validation API
+      summary: /phone/validate/single
+      description: |
+        Submits a phone number for verification. Always use international prefix.
+
+        
+        
+        The response will be returned in the form JSON containing validations details. The field "reachable" provides information regarding the connection status. 
+        | id                                | Tipo                                                                            |Valor Nulo          | Description                                                                            |
+        |-----------------------------------|----------------------------------------------------------------------------------------|--------------------|----------------------------------------------------------------------------------------|
+        | id                                | string                                        |        | ID único de la petición.                                        |
+        | cost                              | float                                         |        | Número de tokens utilizados en la verificación.                                        |
+        | phone_number                      | string                                        |        | Número de teléfono en formato E.164 format.                                        |
+        | number_type                       | string                                        |        | Tipo de número de teléfono (fijo o móvil) Number types                                        |
+        | timezone                          | string                                        |        | Zona horaria donde originalmente el número fue asignado. En ningún caso traza la zona horaria donde se encuentra el usuario en el momento de la verificación.                                        |
+        | is_ported                         | bool                                          |✓       | Indica si el número ha sido portado. Se muestra null en caso de que no se disponga de esta información.                                        |
+        | reachable                         | string                                        |        | Se indica la accesibilidad en el preciso momento de la verificación. Para más información ver Reachability State.                                       |
+        | imsi                              | string                                        |✓       | International Mobile Subscriber Identity (IMSI). Identificador único asociado a la tarjeta SIM. La disponibilidad del IMSI depende del operador móvil de la tarjeta.                                        |
+        | format.e164                       | string                                        |        | El número en formato E.164 format.                                       |
+        | format.international              | string                                        |        | El número en formato internacional.                                       |
+        | format.national                   | string                                        |        | El número en formato nacional.                                      |
+        | format.rfc3966                    | string                                        |        | El número formateado en RFC3966 format.                                       |
+        | original_network.country_iso2     | string                                        |        | El Código de país (ISO2) donde originalmente el número fue asignado.                                       |
+        | original_network.country_prefix   | string                                        |        | El prefijo internacional de llamada donde el número fue originalmente asignado.                                       |       
+        | original_network.area             | string                                        |✓       | El nombre del área donde el número fue asignado.                                       |
+        | original_network.mccmnc           | string                                        |✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red original que emitió el número.                                       |
+        | original_network.mcc              | string                                        |✓       | Tres caracteres MCC (mobile country code) identificando donde la red donde fue emitido el número.                                      |
+        | original_network.mnc              | string                                        |✓       | Dos o tres caracteres MNC (mobile network code) identificando la red donde fue emitido el número.                                       |
+        | original_network.network_name     | string                                        |✓       | Nombre del operador que emitió el número, si se dispone de esta información.                                       |
+        | current_network.country_iso2      | string                                        |✓       | Código del país (ISO2) donde el numero actualmente este asignado.                                        |
+        | current_network.country_prefix    | string                                        |        | El prefijo internacional donde actualmente el número este asignado.                                       |       
+        | current_network.area              | string                                        |✓       | Nombre del área donde actualmente el numero este asignado, si se dispone de esta información.                                       |
+        | current_network.mccmnc            | string                                        |✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red donde actualmente pertenece el número.                                        |
+        | current_network.mcc               | string                                        |✓       | Tres caracteres MCC (mobile country code) identificando el país donde actualmente pertenece el número.                                       |
+        | current_network.mnc               | string                                        |✓       | Dos o tres caractres MNC (mobile network code) identificando la red donde actualmente el número pertenece.                                       |
+        | current_network.network_name      | string                                        |✓       | El nombre del operador donde actualmente el número este asignado, si se dispone de esta información.                                       |
+       
+
+
+      operationId: d587e44e9cd0459714670331256ceaf9
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+        - name: term
+          in: query
+          description: Internation phone number
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+            description: Success result
+            content:
+              application/json:
+                schema:
+                  description: JSON result
+                  required:
+                    - id
+                    - term
+                    - request_id
+                    - result_code
+                    - result_type
+                  properties:
+                    id:
+                      type: string
+                      example: '364637'
+                    term:
+                      type: string
+                      example: '34677934019'
+                    request_id:
+                      type: string
+                      example: '364637'
+                    result_code:
+                      type: string
+                      example: '114'
+                    result_type:
+                      type: string
+                      example: Inconclusive
+                    result:
+                      type: object
+                      example:
+                        id: '364215'
+                        term: '34677934019'
+                        request_id: '364215'
+                        result_code: '101'
+                        result_type: Conectado
+                        result:
+                          phone_number: '+34677934019'
+                          number_type: mobile
+                          timezone: Atlantic/Canary
+                          format:
+                            e164: '+34677934019'
+                            international: +34 677 93 40 19
+                            national: 677 93 40 19
+                            rfc3966: tel:+34-677-93-40-19
+                          is_ported: true
+                          reachable: connected
+                          processing_status: completed
+                          imsi: '214040000000000'
+                          current_network:
+                            country_iso2: ES
+                            country_prefix: '34'
+                            country_name: Spain
+                            mccmnc: '21404'
+                            mcc: '214'
+                            mnc: '04'
+                            area: ES
+                            network_name: Yoigo
+                          original_network:
+                            country_iso2: ES
+                            country_prefix: '34'
+                            country_name: Spain
+                            mccmnc: '21401'
+                            mcc: '214'
+                            mnc: '01'
+                            area: ES
+                            network_name: Vodafone
+                  type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phone/validate/single?term=34677934019&auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phone/validate/single?term=34677934019&auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phone/validate/single?term=34677934019&auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/phone/validate/single?term=34677934019&auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+ 
+  /phone/validate/multiple:
     post:
-      tags:
-      - "pet"
-      summary: "uploads an image"
-      description: ""
-      operationId: "uploadFile"
-      consumes:
-      - "multipart/form-data"
-      produces:
-      - "application/json"
-      parameters:
-      - name: "petId"
-        in: "path"
-        description: "ID of pet to update"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "additionalMetadata"
-        in: "formData"
-        description: "Additional data to pass to server"
-        required: false
-        type: "string"
-      - name: "file"
-        in: "formData"
-        description: "file to upload"
-        required: false
-        type: "file"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/ApiResponse"
       security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-  /pet:
+        - APIKey: []
+      tags:
+        - HLR Validation API
+      summary: /phone/validate/multiple
+      description: |
+        Submit a list of phone numbers for verification. Upload a file containing your
+        list of phone numbers and it will be returned with an additional field
+        that assigns each record verification status.
+
+        This endpoint expects the file to be in the same format as described in
+        our [**File Verification**](#section/File-Verification) section.
+        The updated file will have an additional field attached as described in
+        our [**Result Guide**](#section/Result-Guide) section.
+
+        The response will be returned in the form of a plain text string:
+        | Response           | Description                                                                            |
+        |--------------------|----------------------------------------------------------------------------------------|
+        | &lt;upload-id&gt;  | A number representing the file being processed.                                        |
+        | no_credit          | Your current account balance is $0.                                                    |
+        | cannot_upload_file | The uploaded file could not be processed due to incorrect formatting or broken upload. |
+        | key_not_valid      | No api key was provided in the request or it was invalid.                              |
+        | missing parameters | There are no validations remaining to complete this attempt.                           |
+        
+        After receiving the `upload-id`, you can check the processing status and
+        retrieve the finished results using the [**/getApiFileInfo**](#operation/getApiFileInfo) endpoint.
+        
+      operationId: 593fa14b20a2ee749a8b335c93aed646
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - file
+                - column
+              properties:
+                file:
+                  description: The file to upload (xls, xlsx, cvs, or txt)
+                  type: string
+                  format: binary
+                column:
+                  description: The column number or letter
+                  type: string
+                send_email:
+                  description: >-
+                    Send an email to notify when the file is processed (1) or
+                    not (0, default)
+                  type: integer
+                  default: 0
+                  enum:
+                    - 0
+                    - 1
+                callback_url:
+                  description: URL for the callback
+                  type: string
+                  format: url
+              type: object
+      responses:
+        '200':
+          description: Success result.
+          content:
+            application/json:
+              schema:
+                description: Message successfully sent to the platform.
+                properties:
+                  request_id:
+                    type: string
+                    example: '368228'
+                type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phone/validate/multiple?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('/C:/Users/antxo/Downloads/test_phone_validation.txt'),'column' => '1','send_email' => '1','callback_url' => 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9'),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phone/validate/multiple?auth-token={{api_token}}"
+
+            payload = {'column': '1',
+            'send_email': '1',
+            'callback_url': 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9'}
+            files=[
+              ('file',('test_email_validation.txt',open('/C:/Users/antxo/Downloads/test_phone_validation.txt','rb'),'text/plain'))
+            ]
+            headers = {}
+
+            response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phone/validate/multiple?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Post.new(url)
+            form_data = [['file', File.open('/C:/Users/antxo/Downloads/test_phone_validation.txt')],['column', '1'],['send_email', '1'],['callback_url', 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9']]
+            request.set_form form_data, 'multipart/form-data'
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://dashboard.verificaremails.com/myapi/phone/validate/multiple?auth-token={{api_token}}");
+            var content = new MultipartFormDataContent();
+            content.Add(new StreamContent(File.OpenRead("/C:/Users/antxo/Downloads/test_phone_validation.txt")), "file", "/C:/Users/antxo/Downloads/test_phone_validation.txt");
+            content.Add(new StringContent("1"), "column");
+            content.Add(new StringContent("1"), "send_email");
+            content.Add(new StringContent("https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9"), "callback_url");
+            request.Content = content;
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+  
+  /phone/credits:
+    get:
+      security:
+        - APIKey: []
+      tags:
+        - HLR Validation API
+      summary: /phone/credits
+      description: |
+        Retrieve the number of available credits for that service.
+      operationId: 5bc566aa55569519c6c8580fe84b2932
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success result
+          content:
+            application/json:
+              schema:
+                description: Success JSON
+                properties:
+                  credits:
+                    type: string
+                    example: '1000'
+                type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phone/credits?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phone/credits?auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phone/credits?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/phone/credits?auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+  /all/credits:
+    get:
+      security:
+        - APIKey: []
+      tags:
+        - HLR Validation API
+      summary: /all/credits
+      description: |
+        Retrieve the number of available credits related to all APIss services.
+      operationId: 0b525866e73e0650eceaabb0f892dd6f
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success result
+          content:
+            application/json:
+              schema:
+                description: Success JSON
+                type: array
+                items:
+                  required:
+                    - api_service
+                    - credits
+                    - api_service_alias
+                  properties:
+                    api_service:
+                      type: string
+                      example: email
+                    credits:
+                      type: string
+                      example: '1000'
+                    api_service_alias:
+                      type: string
+                      example: 'Email Verification'
+                  type: object
+              examples:
+                example:
+                  value: 
+                    - api_service: phone
+                      credits: '5'
+                      api_service_alias: 'Phone Number Verification - HLR'
+                    - api_service: email
+                      credits: '6'
+                      api_service_alias: 'Email Verification' 
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/all/credits?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/all/credits?auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/all/credits?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/all/credits?auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            
+            
+            
+  /phonemnp/validate/single:
+    get:
+      security:
+        - APIKey: []
+      tags:
+        - MNP Validation API
+      summary: /phonemnp/validate/single
+      description: |
+
+
+        
+         The response will be returned in the form JSON containing validations details
+          | id                                | Tipo                                                                            |Valor Nulo          | Description                                                                            |
+          |-----------------------------------|----------------------------------------------------------------------------------------|--------------------|----------------------------------------------------------------------------------------|
+          | id                                | string                                        |        | ID único de la petición.                                        |
+          | cost                              | float                                         |        | Número de tokens utilizados en la verificación.                                        |
+          | phone_number                      | string                                        |        | Número de teléfono en formato E.164 format.                                        |
+          | number_type                       | string                                        |        | Tipo de número de teléfono (fijo o móvil) Number types                                        |
+          | timezone                          | string                                        |        | Zona horaria donde originalmente el número fue asignado. En ningún caso traza la zona horaria donde se encuentra el usuario en el momento de la verificación.                                        |
+          | processing_status                 | string                                        |       | Indicates the final processing status for the MNP lookup operation. Please see the Processing Statuses section for all possible values.                                                                  |
+          | imsi                              | string                                        |✓       | International Mobile Subscriber Identity (IMSI). Identificador único asociado a la tarjeta SIM. La disponibilidad del IMSI depende del operador móvil de la tarjeta.                                        |
+          | format.e164                       | string                                        |        | El número en formato E.164 format.                                       |
+          | format.international              | string                                        |        | El número en formato internacional.                                       |
+          | format.national                   | string                                        |        | El número en formato nacional.                                      |
+          | format.rfc3966                    | string                                        |        | El número formateado en RFC3966 format.                                       |
+          | current_network.country_iso2     | string                                        |        | El Código de país (ISO2) donde originalmente el número fue asignado.                                       |
+          | current_network.country_prefix   | string                                        |        | El prefijo internacional de llamada donde el número fue originalmente asignado.                                       |       
+          | current_network.area             | string                                        |✓       | El nombre del área donde el número fue asignado.                                       |
+          | current_network.mccmnc           | string                                        |✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red original que emitió el número.                                       |
+          | current_network.mcc              | string                                        |✓       | Tres caracteres MCC (mobile country code) identificando donde la red donde fue emitido el número.                                      |
+          | current_network.mnc              | string                                        |✓       | Dos o tres caracteres MNC (mobile network code) identificando la red donde fue emitido el número.                                       |
+          | current_network.network_name     | string                                        |✓       | Nombre del operador que emitió el número, si se dispone de esta información.                                       |
+         
+          
+
+      operationId: d587e44e9cd0459014670331256ceaf9
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+        - name: term
+          in: query
+          description: International phone number.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+            description: Success result
+            content:
+              application/json:
+                schema:
+                  description: JSON result
+                  required:
+                    - id
+                    - term
+                    - request_id
+                    - result_code
+                    - result_type
+                  properties:
+                    id:
+                      type: string
+                      example: '364637'
+                    term:
+                      type: string
+                      example: '34677934019'
+                    request_id:
+                      type: string
+                      example: '364637'
+                    result_code:
+                      type: string
+                      example: '114'
+                    result_type:
+                      type: string
+                      example: Inconclusive
+                    result:
+                      type: object
+                      example:
+                        id: '364214'
+                        term: '34677934019'
+                        request_id: '364214'
+                        result_code: '118'
+                        result_type: Móvil
+                        result:
+                          phone_number: '+34677934019'
+                          number_type: mobile
+                          timezone: Atlantic/Canary
+                          format:
+                            e164: '+34677934019'
+                            international: +34 677 93 40 19
+                            national: 677 93 40 19
+                            rfc3966: tel:+34-677-93-40-19
+                          processing_status: completed
+                          imsi: '214040000000000'
+                          current_network:
+                            country_iso2: ES
+                            country_prefix: '34'
+                            country_name: Spain
+                            mccmnc: '21404'
+                            mcc: '214'
+                            mnc: '04'
+                            area: ES
+                            network_name: Yoigo
+                        
+                  type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phonemnp/validate/single?term=34677934019&auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phonemnp/validate/single?term=34677934019&auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phonemnp/validate/single?term=34677934019&auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/phonemnp/validate/single?term=34677934019&auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            
+            
+  /phonemnp/validate/multiple:
     post:
-      tags:
-      - "pet"
-      summary: "Add a new pet to the store"
-      description: ""
-      operationId: "addPet"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Pet object that needs to be added to the store"
-        required: true
-        schema:
-          $ref: "#/definitions/Pet"
-      responses:
-        405:
-          description: "Invalid input"
       security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-    put:
+        - APIKey: []
       tags:
-      - "pet"
-      summary: "Update an existing pet"
-      description: ""
-      operationId: "updatePet"
-      consumes:
-      - "application/json"
-      - "application/xml"
-      produces:
-      - "application/json"
-      - "application/xml"
+        - MNP Validation API
+      summary: /phonemnp/validate/multiple
+      description: |
+        Submit a list of phone numbers for verification. Upload a file containing your
+        list of phone numbers and it will be returned with an additional field
+        that assigns each record verification status.
+
+        This endpoint expects the file to be in the same format as described in
+        our [**File Verification**](#section/File-Verification) section.
+        The updated file will have an additional field attached as described in
+        our [**Result Guide**](#section/Result-Guide) section.
+
+        The response will be returned in the form of a plain text string:
+        | Response           | Description                                                                            |
+        |--------------------|----------------------------------------------------------------------------------------|
+        | &lt;upload-id&gt;  | A number representing the file being processed.                                        |
+        | no_credit          | Your current account balance is $0.                                                    |
+        | cannot_upload_file | The uploaded file could not be processed due to incorrect formatting or broken upload. |
+        | key_not_valid      | No api key was provided in the request or it was invalid.                              |
+        | missing parameters | There are no validations remaining to complete this attempt.                           |
+        
+        After receiving the `upload-id`, you can check the processing status and
+        retrieve the finished results using the [**/getApiFileInfo**](#operation/getApiFileInfo) endpoint.
+      operationId: 583fa14b20a2ee749a8b335c93aed646
       parameters:
-      - in: "body"
-        name: "body"
-        description: "Pet object that needs to be added to the store"
-        required: true
-        schema:
-          $ref: "#/definitions/Pet"
-      responses:
-        400:
-          description: "Invalid ID supplied"
-        404:
-          description: "Pet not found"
-        405:
-          description: "Validation exception"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-  /pet/findByStatus:
-    get:
-      tags:
-      - "pet"
-      summary: "Finds Pets by status"
-      description: "Multiple status values can be provided with comma separated strings"
-      operationId: "findPetsByStatus"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "status"
-        in: "query"
-        description: "Status values that need to be considered for filter"
-        required: true
-        type: "array"
-        items:
-          type: "string"
-          enum:
-          - "available"
-          - "pending"
-          - "sold"
-          default: "available"
-        collectionFormat: "multi"
-      responses:
-        200:
-          description: "successful operation"
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
           schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Pet"
-        400:
-          description: "Invalid status value"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-  /pet/findByTags:
-    get:
-      tags:
-      - "pet"
-      summary: "Finds Pets by tags"
-      description: "Multiple tags can be provided with comma separated strings. Use\
-        \ tag1, tag2, tag3 for testing."
-      operationId: "findPetsByTags"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "tags"
-        in: "query"
-        description: "Tags to filter by"
+            type: string
+      requestBody:
         required: true
-        type: "array"
-        items:
-          type: "string"
-        collectionFormat: "multi"
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - file
+                - column
+              properties:
+                file:
+                  description: The file to upload (xls, xlsx, cvs, or txt)
+                  type: string
+                  format: binary
+                column:
+                  description: The column number or letter
+                  type: string
+                send_email:
+                  description: >-
+                    Send an email to notify when the file is processed (1) or
+                    not (0, default)
+                  type: integer
+                  default: 0
+                  enum:
+                    - 0
+                    - 1
+                callback_url:
+                  description: URL for the callback
+                  type: string
+                  format: url
+              type: object
       responses:
-        200:
-          description: "successful operation"
-          schema:
-            type: "array"
-            items:
-              $ref: "#/definitions/Pet"
-        400:
-          description: "Invalid tag value"
-      security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-      deprecated: true
-  /pet/{petId}:
+        '200':
+          description: Success result.
+          content:
+            application/json:
+              schema:
+                description: Message successfully sent to the platform.
+                properties:
+                  request_id:
+                    type: string
+                    example: '368228'
+                type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phonemnp/validate/multiple?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('/C:/Users/antxo/Downloads/test_phone_validation.txt'),'column' => '1','send_email' => '1','callback_url' => 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9'),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phonemnp/validate/multiple?auth-token={{api_token}}"
+
+            payload = {'column': '1',
+            'send_email': '1',
+            'callback_url': 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9'}
+            files=[
+              ('file',('test_email_validation.txt',open('/C:/Users/antxo/Downloads/test_phone_validation.txt','rb'),'text/plain'))
+            ]
+            headers = {}
+
+            response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phonemnp/validate/multiple?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Post.new(url)
+            form_data = [['file', File.open('/C:/Users/antxo/Downloads/test_phone_validation.txt')],['column', '1'],['send_email', '1'],['callback_url', 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9']]
+            request.set_form form_data, 'multipart/form-data'
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://dashboard.verificaremails.com/myapi/phonemnp/validate/multiple?auth-token={{api_token}}");
+            var content = new MultipartFormDataContent();
+            content.Add(new StreamContent(File.OpenRead("/C:/Users/antxo/Downloads/test_phone_validation.txt")), "file", "/C:/Users/antxo/Downloads/test_phone_validation.txt");
+            content.Add(new StringContent("1"), "column");
+            content.Add(new StringContent("1"), "send_email");
+            content.Add(new StringContent("https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9"), "callback_url");
+            request.Content = content;
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+  
+  /phonemnp/credits:
     get:
-      tags:
-      - "pet"
-      summary: "Find pet by ID"
-      description: "Returns a single pet"
-      operationId: "getPetById"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "petId"
-        in: "path"
-        description: "ID of pet to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        200:
-          description: "successful operation"
-          schema:
-            $ref: "#/definitions/Pet"
-        400:
-          description: "Invalid ID supplied"
-        404:
-          description: "Pet not found"
       security:
-      - api_key: []
+        - APIKey: []
+      tags:
+        - MNP Validation API
+      summary: /phonesyntactic/credits
+      description: Retrieve the number of available credits.
+      operationId: 7bc563aa75569519c6c8580fe84b2932
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success result
+          content:
+            application/json:
+              schema:
+                description: Success JSON
+                properties:
+                  credits:
+                    type: string
+                    example: '1000'
+                type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phonemnp/credits?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phonemnp/credits?auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phonemnp/credits?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/phonemnp/credits?auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+             
+            
+            
+            
+            
+            
+            
+  
+  
+  /phonesyntactic/validate/single:
+    get:
+      security:
+        - APIKey: []
+      tags:
+        - Syntax Validation API
+      summary: /phonesyntactic/validate/single
+      description: |
+
+        Submit the phone number with international prefix.
+        
+         The response will be returned in the form JSON containing validations details
+
+        | id                                | Tipo                                                                            |Valor Nulo          | Description                                                                            |
+        |-----------------------------------|----------------------------------------------------------------------------------------|--------------------|----------------------------------------------------------------------------------------|
+        | id                                | string                                        |        | ID único de la petición.                                        |
+        | phone_number                      | string                                        |        | Número de teléfono en formato E.164 format.                                        |
+        | number_type                       | string                                        |        | Tipo de número de teléfono (fijo o móvil) Number types                                        |
+        | timezone                          | string                                        |        | Zona horaria donde originalmente el número fue asignado. En ningún caso traza la zona horaria donde se encuentra el usuario en el momento de la verificación.                                        |
+        | format.e164                       | string                                        |        | El número en formato E.164 format.                                       |
+        | format.international              | string                                        |        | El número en formato internacional.                                       |
+        | format.national                   | string                                        |        | El número en formato nacional.                                      |
+        | format.rfc3966                    | string                                        |        | El número formateado en RFC3966 format.                                       |
+        | original_network.country_iso2     | string                                        |        | El Código de país (ISO2) donde originalmente el número fue asignado.                                       |
+        | original_network.country_prefix   | string                                        |        | El prefijo internacional de llamada donde el número fue originalmente asignado.                                       |       
+        | original_network.area             | string                                        |✓       | El nombre del área donde el número fue asignado.                                       |
+        | original_network.name           | string                                        |✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red original que emitió el número.                                       |
+        | original_network.network_name     | string                                        |✓       | Nombre del operador que emitió el número, si se dispone de esta información.                                       |
+           
+            
+
+      operationId: d587e46e9cd0459014670331256ceaf9
+      parameters:
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+        - name: term
+          in: query
+          description: International phone number.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+            description: Success result
+            content:
+              application/json:
+                schema:
+                  description: JSON result
+                  required:
+                    - id
+                    - term
+                    - request_id
+                    - result_code
+                    - result_type
+                  properties:
+                    id:
+                      type: string
+                      example: '364637'
+                    term:
+                      type: string
+                      example: '34677934019'
+                    request_id:
+                      type: string
+                      example: '364637'
+                    result_code:
+                      type: string
+                      example: '114'
+                    result_type:
+                      type: string
+                      example: Inconclusive
+                    result:
+                      type: object
+                      example:
+                        id: '364220'
+                        term: '34677934019'
+                        request_id: '364220'
+                        result_code: '137'
+                        result_type: Móvil
+                        result:
+                          phone_number: '+34677934019'
+                          number_type: mobile
+                          timezone: Atlantic/Canary
+                          format:
+                            e164: '+34677934019'
+                            international: +34 677 93 40 19
+                            national: 677 93 40 19
+                            rfc3966: tel:+34-677-93-40-19
+                          original_network:
+                            country_iso2: ES
+                            country_prefix: '34'
+                            country_name: Spain
+                            area: ES
+                            network_name: Vodafone
+
+                        
+                  type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/single?term=34677934019&auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/single?term=34677934019&auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/single?term=34677934019&auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/single?term=34677934019&auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+            
+            
+  /phonesyntactic/validate/multiple:
     post:
-      tags:
-      - "pet"
-      summary: "Updates a pet in the store with form data"
-      description: ""
-      operationId: "updatePetWithForm"
-      consumes:
-      - "application/x-www-form-urlencoded"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "petId"
-        in: "path"
-        description: "ID of pet that needs to be updated"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "name"
-        in: "formData"
-        description: "Updated name of the pet"
-        required: false
-        type: "string"
-      - name: "status"
-        in: "formData"
-        description: "Updated status of the pet"
-        required: false
-        type: "string"
-      responses:
-        405:
-          description: "Invalid input"
       security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-    delete:
+        - APIKey: []
       tags:
-      - "pet"
-      summary: "Deletes a pet"
-      description: ""
-      operationId: "deletePet"
-      produces:
-      - "application/json"
-      - "application/xml"
+        - Syntax Validation API
+      summary: /phonesyntactic/validate/multiple
+      description: |
+        Submit the phone number with international prefix.
+        
+        list of phone numbers and it will be returned with an additional field
+        that assigns each record verification status.
+
+        This endpoint expects the file to be in the same format as described in
+        our [**File Verification**](#section/File-Verification) section.
+        The updated file will have an additional field attached as described in
+        our [**Result Guide**](#section/Result-Guide) section.
+
+        The response will be returned in the form of a plain text string:
+        | Response           | Description                                                                            |
+        |--------------------|----------------------------------------------------------------------------------------|
+        | &lt;upload-id&gt;  | A number representing the file being processed.                                        |
+        | no_credit          | Your current account balance is $0.                                                    |
+        | cannot_upload_file | The uploaded file could not be processed due to incorrect formatting or broken upload. |
+        | key_not_valid      | No api key was provided in the request or it was invalid.                              |
+        | missing parameters | There are no validations remaining to complete this attempt.                           |
+        
+        After receiving the `upload-id`, you can check the processing status and
+        retrieve the finished results using the [**/getApiFileInfo**](#operation/getApiFileInfo) endpoint.
+      operationId: 583fa14b20a2ee749a8b355c93aed646
       parameters:
-      - name: "api_key"
-        in: "header"
-        required: false
-        type: "string"
-      - name: "petId"
-        in: "path"
-        description: "Pet id to delete"
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
+          schema:
+            type: string
+      requestBody:
         required: true
-        type: "integer"
-        format: "int64"
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - file
+                - column
+              properties:
+                file:
+                  description: The file to upload (xls, xlsx, cvs, or txt)
+                  type: string
+                  format: binary
+                column:
+                  description: The column number or letter
+                  type: string
+                send_email:
+                  description: >-
+                    Send an email to notify when the file is processed (1) or
+                    not (0, default)
+                  type: integer
+                  default: 0
+                  enum:
+                    - 0
+                    - 1
+                callback_url:
+                  description: URL for the callback
+                  type: string
+                  format: url
+              type: object
       responses:
-        400:
-          description: "Invalid ID supplied"
-        404:
-          description: "Pet not found"
+        '200':
+          description: Success result.
+          content:
+            application/json:
+              schema:
+                description: Message successfully sent to the platform.
+                properties:
+                  request_id:
+                    type: string
+                    example: '368228'
+                type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/multiple?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_POSTFIELDS => array('file'=> new CURLFILE('/C:/Users/antxo/Downloads/test_phone_validation.txt'),'column' => '1','send_email' => '1','callback_url' => 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9'),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/multiple?auth-token={{api_token}}"
+
+            payload = {'column': '1',
+            'send_email': '1',
+            'callback_url': 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9'}
+            files=[
+              ('file',('test_email_validation.txt',open('/C:/Users/antxo/Downloads/test_phone_validation.txt','rb'),'text/plain'))
+            ]
+            headers = {}
+
+            response = requests.request("POST", url, headers=headers, data=payload, files=files)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/multiple?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Post.new(url)
+            form_data = [['file', File.open('/C:/Users/antxo/Downloads/test_phone_validation.txt')],['column', '1'],['send_email', '1'],['callback_url', 'https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9']]
+            request.set_form form_data, 'multipart/form-data'
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://dashboard.verificaremails.com/myapi/phonesyntactic/validate/multiple?auth-token={{api_token}}");
+            var content = new MultipartFormDataContent();
+            content.Add(new StreamContent(File.OpenRead("/C:/Users/antxo/Downloads/test_phone_validation.txt")), "file", "/C:/Users/antxo/Downloads/test_phone_validation.txt");
+            content.Add(new StringContent("1"), "column");
+            content.Add(new StringContent("1"), "send_email");
+            content.Add(new StringContent("https://webhook.site/7f0ec9da-6274-4b9c-98d6-2b0f4eb61ed9"), "callback_url");
+            request.Content = content;
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+  
+  /phonesyntactic/credits:
+    get:
       security:
-      - petstore_auth:
-        - "write:pets"
-        - "read:pets"
-  /store/order:
-    post:
+        - APIKey: []
       tags:
-      - "store"
-      summary: "Place an order for a pet"
-      description: ""
-      operationId: "placeOrder"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      - "application/xml"
+        - Syntax Validation API
+      summary: /phonesyntactic/credits
+      description: Retrieve the number of available credits.
+      operationId: 7bc563aa75569549c6c8580fe84b2932
       parameters:
-      - in: "body"
-        name: "body"
-        description: "order placed for purchasing the pet"
-        required: true
-        schema:
-          $ref: "#/definitions/Order"
-      responses:
-        200:
-          description: "successful operation"
+        - name: auth-token
+          in: query
+          description: API auth token
+          required: true
           schema:
-            $ref: "#/definitions/Order"
-        400:
-          description: "Invalid Order"
-  /store/order/{orderId}:
-    get:
-      tags:
-      - "store"
-      summary: "Find purchase order by ID"
-      description: "For valid response try integer IDs with value >= 1 and <= 10.\
-        \ Other values will generated exceptions"
-      operationId: "getOrderById"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "orderId"
-        in: "path"
-        description: "ID of pet that needs to be fetched"
-        required: true
-        type: "integer"
-        maximum: 10
-        minimum: 1
-        format: "int64"
+            type: string
       responses:
-        200:
-          description: "successful operation"
+        '200':
+          description: Success result
+          content:
+            application/json:
+              schema:
+                description: Success JSON
+                properties:
+                  credits:
+                    type: string
+                    example: '1000'
+                type: object
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '402':
+          $ref: '#/components/responses/402'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+        '429':
+          $ref: '#/components/responses/429'
+        '500':
+          $ref: '#/components/responses/500'
+      x-codeSamples:
+        - lang: PHP
+          source: |
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => 'https://dashboard.verificaremails.com/myapi/phonesyntactic/credits?auth-token={{api_token}}',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
+        - lang: Python
+          source: |
+            import requests
+
+            url = "https://dashboard.verificaremails.com/myapi/phonesyntactic/credits?auth-token={{api_token}}"
+
+            payload = {}
+            headers = {}
+
+            response = requests.request("GET", url, headers=headers, data=payload)
+
+            print(response.text)
+        - lang: Ruby
+          source: |
+            require "uri"
+            require "net/http"
+
+            url = URI("https://dashboard.verificaremails.com/myapi/phonesyntactic/credits?auth-token={{api_token}}")
+
+            https = Net::HTTP.new(url.host, url.port)
+            https.use_ssl = true
+
+            request = Net::HTTP::Get.new(url)
+
+            response = https.request(request)
+            puts response.read_body
+        - lang: C#
+          source: |
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dashboard.verificaremails.com/myapi/phonesyntactic/credits?auth-token={{api_token}}");
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
+  
+  
+  
+  
+            
+            
+            
+components:
+  securitySchemes:
+    APIKey:
+      type: apiKey
+      name: auth-token
+      in: query
+  schemas:
+    ErrorResponse:
+      required:
+        - error
+      properties:
+        error:
+          required:
+            - code
+            - msg
+          properties:
+            code:
+              description: Internal error code
+              type: integer
+              example: 100001
+            msg:
+              description: Error description
+              type: string
+              example: Error description
+          type: object
+      type: object
+  responses:
+    '400':
+      description: Your request is structured incorrectly.
+      content:
+        application/json:
           schema:
-            $ref: "#/definitions/Order"
-        400:
-          description: "Invalid ID supplied"
-        404:
-          description: "Order not found"
-    delete:
-      tags:
-      - "store"
-      summary: "Delete purchase order by ID"
-      description: "For valid response try integer IDs with positive integer value.\
-        \ Negative or non-integer values will generate API errors"
-      operationId: "deleteOrder"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "orderId"
-        in: "path"
-        description: "ID of the order that needs to be deleted"
-        required: true
-        type: "integer"
-        minimum: 1
-        format: "int64"
-      responses:
-        400:
-          description: "Invalid ID supplied"
-        404:
-          description: "Order not found"
-  /store/inventory:
-    get:
-      tags:
-      - "store"
-      summary: "Returns pet inventories by status"
-      description: "Returns a map of status codes to quantities"
-      operationId: "getInventory"
-      produces:
-      - "application/json"
-      parameters: []
-      responses:
-        200:
-          description: "successful operation"
+            $ref: '#/components/schemas/ErrorResponse'
+    '401':
+      description: You did not send an API key.
+      content:
+        application/json:
           schema:
-            type: "object"
-            additionalProperties:
-              type: "integer"
-              format: "int32"
-      security:
-      - api_key: []
-  /user/createWithArray:
-    post:
-      tags:
-      - "user"
-      summary: "Creates list of users with given input array"
-      description: ""
-      operationId: "createUsersWithArrayInput"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "List of user object"
-        required: true
-        schema:
-          type: "array"
-          items:
-            $ref: "#/definitions/User"
-      responses:
-        default:
-          description: "successful operation"
-  /user/createWithList:
-    post:
-      tags:
-      - "user"
-      summary: "Creates list of users with given input array"
-      description: ""
-      operationId: "createUsersWithListInput"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "List of user object"
-        required: true
-        schema:
-          type: "array"
-          items:
-            $ref: "#/definitions/User"
-      responses:
-        default:
-          description: "successful operation"
-  /user/{username}:
-    get:
-      tags:
-      - "user"
-      summary: "Get user by user name"
-      description: ""
-      operationId: "getUserByName"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "username"
-        in: "path"
-        description: "The name that needs to be fetched. Use user1 for testing. "
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "successful operation"
+            $ref: '#/components/schemas/ErrorResponse'
+    '402':
+      description: You don't have enough credits to complete this request.
+      content:
+        application/json:
           schema:
-            $ref: "#/definitions/User"
-        400:
-          description: "Invalid username supplied"
-        404:
-          description: "User not found"
-    put:
-      tags:
-      - "user"
-      summary: "Updated user"
-      description: "This can only be done by the logged in user."
-      operationId: "updateUser"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "username"
-        in: "path"
-        description: "name that need to be updated"
-        required: true
-        type: "string"
-      - in: "body"
-        name: "body"
-        description: "Updated user object"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
-      responses:
-        400:
-          description: "Invalid user supplied"
-        404:
-          description: "User not found"
-    delete:
-      tags:
-      - "user"
-      summary: "Delete user"
-      description: "This can only be done by the logged in user."
-      operationId: "deleteUser"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "username"
-        in: "path"
-        description: "The name that needs to be deleted"
-        required: true
-        type: "string"
-      responses:
-        400:
-          description: "Invalid username supplied"
-        404:
-          description: "User not found"
-  /user/login:
-    get:
-      tags:
-      - "user"
-      summary: "Logs user into the system"
-      description: ""
-      operationId: "loginUser"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - name: "username"
-        in: "query"
-        description: "The user name for login"
-        required: true
-        type: "string"
-      - name: "password"
-        in: "query"
-        description: "The password for login in clear text"
-        required: true
-        type: "string"
-      responses:
-        200:
-          description: "successful operation"
-          headers:
-            X-Expires-After:
-              type: "string"
-              format: "date-time"
-              description: "date in UTC when token expires"
-            X-Rate-Limit:
-              type: "integer"
-              format: "int32"
-              description: "calls per hour allowed by the user"
+            $ref: '#/components/schemas/ErrorResponse'
+    '403':
+      description: Your API key is invalid.
+      content:
+        application/json:
           schema:
-            type: "string"
-        400:
-          description: "Invalid username/password supplied"
-  /user/logout:
-    get:
-      tags:
-      - "user"
-      summary: "Logs out current logged in user session"
-      description: ""
-      operationId: "logoutUser"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters: []
-      responses:
-        default:
-          description: "successful operation"
-  /user:
-    post:
-      tags:
-      - "user"
-      summary: "Create user"
-      description: "This can only be done by the logged in user."
-      operationId: "createUser"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      - "application/xml"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Created user object"
-        required: true
-        schema:
-          $ref: "#/definitions/User"
-      responses:
-        default:
-          description: "successful operation"
-securityDefinitions:
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
-  petstore_auth:
-    type: "oauth2"
-    authorizationUrl: "https://petstore.swagger.io/oauth/authorize"
-    flow: "implicit"
-    scopes:
-      read:pets: "read your pets"
-      write:pets: "modify pets in your account"
-definitions:
-  ApiResponse:
-    type: "object"
-    properties:
-      code:
-        type: "integer"
-        format: "int32"
-      type:
-        type: "string"
-      message:
-        type: "string"
-  Category:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      name:
-        type: "string"
-    xml:
-      name: "Category"
-  Pet:
-    type: "object"
-    required:
-    - "name"
-    - "photoUrls"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      category:
-        $ref: "#/definitions/Category"
-      name:
-        type: "string"
-        example: "doggie"
-      photoUrls:
-        type: "array"
-        xml:
-          wrapped: true
-        items:
-          type: "string"
-          xml:
-            name: "photoUrl"
-      tags:
-        type: "array"
-        xml:
-          wrapped: true
-        items:
-          xml:
-            name: "tag"
-          $ref: "#/definitions/Tag"
-      status:
-        type: "string"
-        description: "pet status in the store"
-        enum:
-        - "available"
-        - "pending"
-        - "sold"
-    xml:
-      name: "Pet"
-  Tag:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      name:
-        type: "string"
-    xml:
-      name: "Tag"
-  Order:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      petId:
-        type: "integer"
-        format: "int64"
-      quantity:
-        type: "integer"
-        format: "int32"
-      shipDate:
-        type: "string"
-        format: "date-time"
-      status:
-        type: "string"
-        description: "Order Status"
-        enum:
-        - "placed"
-        - "approved"
-        - "delivered"
-      complete:
-        type: "boolean"
-    xml:
-      name: "Order"
-  User:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      username:
-        type: "string"
-      firstName:
-        type: "string"
-      lastName:
-        type: "string"
-      email:
-        type: "string"
-      password:
-        type: "string"
-      phone:
-        type: "string"
-      userStatus:
-        type: "integer"
-        format: "int32"
-        description: "User Status"
-    xml:
-      name: "User"
-externalDocs:
-  description: "Find out more about Swagger"
-  url: "http://swagger.io"
+            $ref: '#/components/schemas/ErrorResponse'
+    '404':
+      description: The specified resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    '429':
+      description: You're requesting an endpoint too often.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    '500':
+      description: >-
+        A server error occurred. Please try again later, or contact support if
+        you're having trouble.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
