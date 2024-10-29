@@ -136,9 +136,9 @@ Por cada número válido procesado a través de la API de verificación de núme
 Si su propiedad de accesibilidad devuelve que el número es “suscriptor ausente” (absent), entonces hay varias razones posibles para esto.
          <br><br>
 * El teléfono está apagado y se realizó una llamada al número durante este período. Cuando un intento de conectarse a un número falla porque está apagado, no tiene señal o está en modo avión, entonces la llamada al API se actualizará a un estado de Suscriptor ausente para reflejar que las llamadas no pueden conectarse actualmente o los SMS no pueden enviarse a ese número. Cuando el teléfono se vuelva a encender, se conectará a una torre celular y el API se actualizará y marcará que el número es accesible.
-         <br><br>
-  * Un largo período de inactividad en el número. Cada operador de red tiene diferentes umbrales al actualizar la base de datos del API para mostrar un número de móvil como “ausente”. Por lo general, si un número no se ha activado en un teléfono durante más de 4 días, se considerará como Ausente y una búsqueda lo reflejará.
-         <br><br>
+
+* Un largo período de inactividad en el número. Cada operador de red tiene diferentes umbrales al actualizar la base de datos del API para mostrar un número de móvil como “ausente”. Por lo general, si un número no se ha activado en un teléfono durante más de 4 días, se considerará como Ausente y una búsqueda lo reflejará.
+       
 * El número se ha asignado a una tarjeta SIM pero aún no se ha conectado (por ejemplo, un número de teléfono que todavía está en una tienda a la espera de ser vendido).
 
 ## Tipos de Números
