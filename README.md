@@ -4,36 +4,7 @@ La <a href="https://www.verificaremails.com/docs/index_telefonos.html">API para 
       -  Verificación HLR
       -  Verificación MNP
       -  Verificación sintáctica
-      
-Para las validaciones de teléfonos móviles (HLR, MNP) utilizamos un método que consulta las redes móviles para determinar el operador y ver si el número está activo. Ofrecemos información sobre la portabilidad (red actual y red emisora). 
-      
-Con nuestro servicio de verificación podrás mantener tu base de datos limpia eliminando todos los números inactivos, falsos y comunicarse con tus clientes de forma fiable. Todas estas verificaciones se realizan sin que el usuario reciba una llamada o SMS.
-      
-El API es capaz de identificar el tipo de número diferenciando entre móvil y fijo. Mostrando el resultado para cada una de las verificaciones.
 
-## Verificaciones Masivas
-Para verificar un volumen elevado  de teléfonos, debemos agrupar los números en un fichero CSV, TXY o Excel. Cada fila debe contener un teléfono con el prefijo internacional.
-
-## Crear una cuenta en Verificaremails ®
-Para utilizar el servicio deberás <a href="https://dashboard.verificaremails.com/app/public/register" target="_blank">**crear una cuenta gratuita en Verificaremails**</a>.
-
-![Sign Up Page](static/images/signup.png)
-
-## Verificar Números de Teléfono
-Una vez hayas creado tu cuenta gratuita, debes iniciar sesión para empezar a utilizarla el servicio de *Verificaremails ®*. 
-
-Si deseas verificar teléfonos de forma individual, solo debes introducir el número de teléfono en el campo **Petición Rápida**. 
-    
-![Bulk Email Verification](static/images/telefonos_peticion_rapida.png)
-    
-Si lo que deseas es verificar un listado de números de teléfono, lo más rápido es que utilices la verificación de ficheros. Solo tienes que arrastrar el fichero a la caja naranja que encontrarás en la pantalla principal y seleccionar en que columna se encuentran los mails. La primera columna es la 1 y así sucesivamente. 
-    
-Puedes subir ficheros en formato Excel, TXT y CSV. Lo importante es que la información este organizada en columnas. Antes de verificar un fichero asegúrate que la información esté organizada en columnas ya que por cada registro te descontaremos un crédito de tu cuenta independientemente del valor que verifiquemos.
-Como mecanismo de seguridad, si no hay más de un 50% de números de teléfono en la columna. **No lanzaremos la verificación**. 
-    
-Si durante la subida del fichero se muestra un error, en la mayoría de las ocasiones se debe a un error en el formato de los datos. Asegúrate que la información está bien tabulada. Si aun necesitas ayuda, puedes contactarnos por el chat que encontrarás en la parte inferior derecha.
-
-![Bulk Email Verification](static/images/bulk-email-verification.png)
 
 # Como funciona Verificar Emails ®
 Disponemos de 3 mecanismos para verificar los números de teléfono. La verificación más precisa es la Verificación de números HLR, la que proporciona un grado intermedio de precisión es la verificación de números MNP. La verificación más simple es la que solo verifica de forma sintáctica el número de teléfono.
@@ -61,8 +32,6 @@ Consiste en comprobar la estructura y el formato del número de teléfono para a
     
 Este tipo de verificación es la más económica, pero a costa de obtener menos información de los números verificados.
     
-    
-![Sign Up Page](static/images/tipos_verificacion_telefonos.png)
 
 # Guía Resultados
 *Verificaremails ®* la respuesta de las llamadas, veien en formato JSON para poder explotar los datos de forma cómoda (Excel permite convertir el formato JSON en columnas para facilitar la explotación de los datos).
@@ -76,25 +45,25 @@ Este tipo de verificación es la más económica, pero a costa de obtener menos 
     | timezone                          | string      |                    | Zona horaria donde originalmente el número fue asignado. En ningún caso traza la zona horaria donde se encuentra el usuario en el momento de la verificación.                                        |
     | is_ported                         | bool        | ✓                  | Indica si el número ha sido portado. Se muestra null en caso de que no se disponga de esta información.                     |
     | reachable                         | string      |                    | Se indica la accesibilidad en el preciso momento de la verificación. Para más información ver Reachability State.                                       |
-    | imsi                              | string                                        | ✓       | International Mobile Subscriber Identity (IMSI). Identificador único asociado a la tarjeta SIM. La disponibilidad del IMSI depende del operador móvil de la tarjeta.                                        |
-    | format.e164                       | string                                        |        | El número en formato E.164 format.                                       |
-    | format.international              | string                                        |        | El número en formato internacional.                                       |
-    | format.national                   | string                                        |        | El número en formato nacional.                                      |
-    | format.rfc3966                    | string                                        |        | El número formateado en RFC3966 format.                                       |
-    | original_network.country_iso2     | string                                        |        | El Código de país (ISO2) donde originalmente el número fue asignado.                                       |
-    | original_network.country_prefix   | string                                        |        | El prefijo internacional de llamada donde el número fue originalmente asignado.                                       |       
-    | original_network.area             | string                                        | ✓       | El nombre del área donde el número fue asignado.                                       |
-    | original_network.mccmnc           | string                                        | ✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red original que emitió el número.                                       |
-    | original_network.mcc              | string                                        | ✓       | Tres caracteres MCC (mobile country code) identificando donde la red donde fue emitido el número.                                      |
-    | original_network.mnc              | string                                        | ✓       | Dos o tres caracteres MNC (mobile network code) identificando la red donde fue emitido el número.                                       |
-    | original_network.network_name     | string                                        | ✓       | Nombre del operador que emitió el número, si se dispone de esta información.                                       |
-    | current_network.country_iso2      | string                                        | ✓       | Código del país (ISO2) donde el numero actualmente este asignado.                                        |
-    | current_network.country_prefix    | string                                        |        | El prefijo internacional donde actualmente el número este asignado.                                       |       
-    | current_network.area              | string                                        | ✓       | Nombre del área donde actualmente el numero este asignado, si se dispone de esta información.                                       |
-    | current_network.mccmnc            | string                                        |✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red donde actualmente pertenece el número.                                        |
-    | current_network.mcc               | string                                        | ✓       | Tres caracteres MCC (mobile country code) identificando el país donde actualmente pertenece el número.                                       |
-    | current_network.mnc               | string                                        | ✓       | Dos o tres caractres MNC (mobile network code) identificando la red donde actualmente el número pertenece.                                       |
-    | current_network.network_name      | string                                        |    ✓       | El nombre del operador donde actualmente el número este asignado, si se dispone de esta información.                                       |
+    | imsi                              | string      | ✓       | International Mobile Subscriber Identity (IMSI). Identificador único asociado a la tarjeta SIM. La disponibilidad del IMSI depende del operador móvil de la tarjeta.                                        |
+    | format.e164                       | string      |        | El número en formato E.164 format.                                       |
+    | format.international              | string      |        | El número en formato internacional.                                       |
+    | format.national                   | string      |        | El número en formato nacional.                                      |
+    | format.rfc3966                    | string      |        | El número formateado en RFC3966 format.                                       |
+    | original_network.country_iso2     | string      |        | El Código de país (ISO2) donde originalmente el número fue asignado.                                       |
+    | original_network.country_prefix   | string      |        | El prefijo internacional de llamada donde el número fue originalmente asignado.                                       |       
+    | original_network.area             | string      | ✓       | El nombre del área donde el número fue asignado.                                       |
+    | original_network.mccmnc           | string      | ✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red original que emitió el número.                                       |
+    | original_network.mcc              | string      | ✓       | Tres caracteres MCC (mobile country code) identificando donde la red donde fue emitido el número.                                      |
+    | original_network.mnc              | string      | ✓       | Dos o tres caracteres MNC (mobile network code) identificando la red donde fue emitido el número.                                       |
+    | original_network.network_name     | string      | ✓       | Nombre del operador que emitió el número, si se dispone de esta información.                                       |
+    | current_network.country_iso2      | string      | ✓       | Código del país (ISO2) donde el numero actualmente este asignado.                                        |
+    | current_network.country_prefix    | string      |        | El prefijo internacional donde actualmente el número este asignado.                                       |       
+    | current_network.area              | string      | ✓       | Nombre del área donde actualmente el numero este asignado, si se dispone de esta información.                                       |
+    | current_network.mccmnc            | string      | ✓       | Cinco o seis caracteres MCCMNC (mobile country code + mobile network code tuple) identificando la red donde actualmente pertenece el número.                                        |
+    | current_network.mcc               | string      | ✓       | Tres caracteres MCC (mobile country code) identificando el país donde actualmente pertenece el número.                                       |
+    | current_network.mnc               | string      | ✓       | Dos o tres caractres MNC (mobile network code) identificando la red donde actualmente el número pertenece.                                       |
+    | current_network.network_name      | string      | ✓       | El nombre del operador donde actualmente el número este asignado, si se dispone de esta información.                                       |
             
 Si el número que tratamos de verificar es una línea fija, la respuesta que obtenemos es:
         
