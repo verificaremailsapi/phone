@@ -1,7 +1,6 @@
 # Verificar Teléfonos ®
 
-La <a href="https://www.verificaremails.com/docs/index_telefonos.html">API para Verificar teléfonos</a> permite validar en tiempo real la veracidad de un número de teléfono. La API de Verificar teléfonos permite validar en tiempo real la veracidad de un número de teléfono. 
-      Disponemos de 3 métodos para verificar los números de teléfono:
+La <a href="https://www.verificaremails.com/docs/index_telefonos.html">API para Verificar teléfonos</a> permite validar en tiempo real la veracidad de un número de teléfono. Disponemos de 3 métodos para verificar los números de teléfono:
       -  Verificación HLR
       -  Verificación MNP
       -  Verificación sintáctica
@@ -14,10 +13,6 @@ El API es capaz de identificar el tipo de número diferenciando entre móvil y f
 
 ## Verificaciones Masivas
 Para verificar un volumen elevado  de teléfonos, debemos agrupar los números en un fichero CSV, TXY o Excel. Cada fila debe contener un teléfono con el prefijo internacional.
-
-# Empezar
-En los siguientes puntos descubre como utilizar Validaremails para verificar de forma sencilla, económica y eficaz tus números de teléfono y obtener informes detallados de
-tus contactos.
 
 ## Crear una cuenta en Verificaremails ®
 Para utilizar el servicio deberás <a href="https://dashboard.verificaremails.com/app/public/register" target="_blank">**crear una cuenta gratuita en Verificaremails**</a>.
