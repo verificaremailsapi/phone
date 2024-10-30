@@ -1,37 +1,43 @@
 # Verificar Teléfonos ®
 
-La <a href="https://www.verificaremails.com/docs/index_telefonos.html">API para Verificar teléfonos</a> permite validar en tiempo real la veracidad de un número de teléfono. Disponemos de 3 métodos para verificar los números de teléfono:
-      -  Verificación HLR
-      -  Verificación MNP
-      -  Verificación sintáctica
+La <a href="https://www.verificaremails.com/docs/index_telefonos.html">API para Verificar teléfonos</a> permite validar en tiempo real la veracidad de un número de teléfono. 
 
 
-# Como funciona Verificar Emails ®
+# Como funciona Verificar Teléfonos ®
 Disponemos de 3 mecanismos para verificar los números de teléfono. La verificación más precisa es la Verificación de números HLR, la que proporciona un grado intermedio de precisión es la verificación de números MNP. La verificación más simple es la que solo verifica de forma sintáctica el número de teléfono.
     
 Los 3 mecanismos, utilizan los mismos campos, la principal diferencia es en el número de campos devueltos y la precisión de la formación.
     
-**Verificación teléfonos HLR**
-    
-Es el método de verificación de números de teléfono más preciso. Permite saber si un número está actualmente conectado a la red móvil. Validar el estado y los detalles de los números de móvil en tiempo real. El término «HLR» significa Home Location Register, una base de datos central que contiene detalles de cada abonado de telefonía móvil autorizado por una red GSM. La búsqueda en el HLR, por tanto, es una forma de acceder a esta información para garantizar la validez y disponibilidad de un número de móvil. Esta tecnología ofrece el grado más alto de precisión, como contra partida tiene el coste de verificación más alto.
-    
-**Verificación teléfonos MNP**
-    
-La verificación de búsqueda de la portabilidad del número de móvil (MNP) es un proceso utilizado para validar los números y garantizar la identificación exacta de los proveedores de red.
-    
-La búsqueda MNP ayuda a determinar el operador actual de un número de móvil. Las empresas utilizan esta información para enrutar los mensajes SMS de forma precisa y rentable.
-    
-La verificación MNP ofrece un compromiso entre el grado de precisión y el coste de cada validación. Se puede utilizar como mecanismo indirecto para la verificación de teléfonos.
-    
-**Verificación sintáctica de números de teléfono**
-    
 
-La verificación sintáctica de los números de teléfono garantiza la exactitud y coherencia de los números de teléfono.
-    
-Consiste en comprobar la estructura y el formato del número de teléfono para asegurarse de que se ajusta a un patrón o conjunto de normas específico. Este proceso ayuda a identificar y corregir errores.
-    
-Este tipo de verificación es la más económica, pero a costa de obtener menos información de los números verificados.
-    
+*Validación HLR: La más precisa
+
+La verificación HLR (Home Location Register) es nuestra opción más avanzada. Este método:
+
+- Comprueba en tiempo real si un número está activo en la red móvil
+- Accede a una base de datos central con información de todos los abonados GSM autorizados
+- Proporciona la máxima precisión en la validación de números móviles
+- Tiene un costo más elevado debido a su alta fiabilidad
+
+*Verificación MNP: Equilibrio entre precisión y costo
+
+La búsqueda de portabilidad de números móviles (MNP) ofrece:
+
+- Identificación exacta del proveedor de red actual
+- Ayuda en el enrutamiento eficiente de mensajes SMS
+- Una solución intermedia entre precisión y costo
+- Utilidad como método indirecto de verificación telefónica
+
+*Verificación sintáctica: Opción económica
+
+Este método básico se centra en:
+
+- Analizar la estructura y formato del número telefónico
+- Identificar errores evidentes en la composición del número
+- Ofrecer una opción de bajo costo para validación básica
+- Proporcionar menos información detallada sobre el número verificado
+
+Cada uno de estos mecanismos utiliza campos similares, pero difieren en la cantidad de información que devuelven y en la precisión de los datos obtenidos. La elección del método dependerá de sus necesidades específicas de validación y presupuesto.
+
 
 # Guía Resultados
 *Verificaremails ®* la respuesta de las llamadas, veien en formato JSON para poder explotar los datos de forma cómoda (Excel permite convertir el formato JSON en columnas para facilitar la explotación de los datos).
