@@ -37,114 +37,11 @@ info:
 
  
 
-    ## Create an account on Verificaremails ®:
-    To use the service, you must create a free account on Verificaremails:
-    <a href="https://dashboard.verificaremails.com/app/public/register" target="_blank">**create a free account on Verificaremails**</a>
-
-    ![Sign Up Page](static/images/signup.png)
-
-    ## Verify Phone Numbers:
+   
+   
+   
+   
   
-    Once you have created your free account, you must log in to start using the *Verificaremails ®* service. 
-
-    If you want to verify phones individually, you just need to enter the phone number in the **Quick Request** field.
-
-      ![Bulk Email Verification](static/images/telefonos_peticion_rapida.png)
-
-    If you want to verify a list of phone numbers, the fastest way is to use file verification. You just need to drag the file to the orange box you'll find on the main screen and select which column the emails are in. The first column is 1 and so on.
-
-    You can upload files in Excel, TXT and CSV format. The important thing is that the information is organized in columns. Before verifying a file, make sure the information is organized in columns as we will deduct one credit from your account for each record regardless of the value we verify.
-
-    As a security mechanism, if there are not more than 50% phone numbers in the column, **we will not launch the verification**.
-
-    If an error is displayed during file upload, in most cases it is due to an error in the data format. Make sure the information is properly tabulated. If you still need help, you can contact us through the chat you'll find in the bottom right corner.
-
-    ![Bulk Email Verification](static/images/bulk-email-verification.png)
-
-    ## Verify Phone Numbers using the API to Validate Phone ®:
-    You can use our API to validate phone numbers from your applications in real time.
-
-    Using our API only requires a few lines of code. For more details
-    visit the [**API Developers**](#section/Getting-Started/API-Developers) section.
-
-    Before you can use the API you must create one ;-) 
-
-    Go to the **APIs** section and select **+Create new API**. Make sure you are in the section of the service you want to use.
-
-    By selecting the "eye" icon you will see the last validated records. By selecting the "wheel" icon you can change the API key and limit the total requests, requests per minute that the API can receive or its status.
-
-    Remember that you can use the API in your developments, in Zapier integrations, our <a href="https://www.verificaremails.com/kb/como-utilizar-el-widget-para-validar-formularios/" target="_blank">Widget</a> or verification with third-party applications such as Excel or Google Sheets.
-
-    Our API allows you to validate individual phone addresses or validate
-    lists of numbers by uploading files to our platform.
-
-    # How Verificar Emails ® works:
-    We have 3 mechanisms to verify phone numbers. The most accurate verification is HLR number verification, the one that provides an intermediate degree of accuracy is MNP number verification. The simplest verification is the one that only syntactically verifies the phone number.
-
-    All 3 mechanisms use the same fields, the main difference is in the number of fields returned and the accuracy of the training.
-
-    **HLR phone verification**
-
-    It is the most accurate method of phone number verification. It allows you to know if a number is currently connected to the mobile network. Validate the status and details of mobile numbers in real time. The term "HLR" stands for Home Location Register, a central database that contains details of each mobile subscriber authorized by a GSM network. The HLR lookup, therefore, is a way to access this information to ensure the validity and availability of a mobile number. This technology offers the highest degree of accuracy, as a counterpart it has the highest verification cost.
-
-      **MNP phone verification**
-
-    Mobile Number Portability (MNP) lookup verification is a process used to validate numbers and ensure accurate identification of network providers.
-
-     MNP lookup helps determine the current operator of a mobile number. Businesses use this information to route SMS messages accurately and cost-effectively.
-
-     MNP verification offers a compromise between the degree of accuracy and the cost of each validation. It can be used as an indirect mechanism for phone verification.
-  
-      **Syntactic phone number verification**
-  
-      Syntactic verification of phone numbers ensures the accuracy and consistency of phone numbers.
-  
-     It consists of checking the structure and format of the phone number to ensure that it conforms to a specific pattern or set of rules. This process helps identify and correct errors.
-  
-      This type of verification is the most economical, but at the cost of obtaining less information from the verified numbers.
-  
-      ![Sign Up Page](static/images/tipos_verificacion_telefonos.png)
-  
-      # Verify Files:
-     *Verificar Emails ®* offers different ways to import contact files 
-      for verification. You can upload CSV, XLS, XLSX and TXT files 
-     from your local computer.
-
-    ![File Upload](static/images/file-upload.png)
-  
-    To upload a file, go to the **_Dashboard_** or **_Validation_** section. Using the orange box, select the files to verify. You can also drag and drop files from your computer.
-
-    Once the files have been uploaded, they will be visible in the **_UPLOADED FILES_** section.
-    New files will start their validation automatically. **IMPORTANT:** Once you start the validation process, it cannot be canceled. Make sure the emails are correctly tabulated in your file. Once the verification process is finished, you will receive an email message to proceed with downloading the verified file.
-
-    While uploading a file make sure the following conditions are met:
-
-    * The phone numbers are in a single column.
-    * The phone numbers must appear in the same column in the different rows.
-    * We recommend that the list be less than 250,000 phone numbers. To optimize speed we recommend lists of less than 100,000 records.
-    * The field names should appear in the first row of the file to be able to
-    categorize the different fields.
-    * For confidentiality reasons, validated files will be deleted from our server after 30 days, leaving only a summary of the verification. You must save the verified data in your environment.
-
-    In the image below you have an example of what the file to be validated should look like:
-  
-    ![File Upload 4](static/images/file-upload4-tel.png)
-    
-      If you're not sure your data is well formatted, upload only a part of your contacts and do a test with about 5 emails. The credits you consume in verifications with invalid records cannot be refunded.
-    
-      If your file is not well formatted, copy the column of phone numbers into a notepad or a new Excel sheet and validate only the emails.
-      Once verified, you will have 2 columns, one containing the phone number and the verification result. You can copy these values back into your original Excel file.
-    
-      Once the file has been processed by *Verificaremails ®*, the **_Status_** column appears
-      to categorize the status of the emails. The only 100% safe phones are the "connected" ones. In the "Result" column you can see the details of the verification. You can read more about this topic in
-      the [**Results Guide**](#section/Results-Guide) section.
-
-    The processed lists look like this:
-
-    ![File Upload 5](static/images/file-upload5-tel.png)
-
-    # Download and Export Results:
-    Once your list has been verified, you will receive an email. The file format will be the same as you uploaded, but with 2 additional columns ("status" and "result").
 
     # Results Guide:
       *Verificaremails ®* the response of the calls, comes in JSON format to be able to exploit the data 
