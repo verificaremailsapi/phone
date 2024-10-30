@@ -18,7 +18,7 @@ La verificación HLR (Home Location Register) es nuestra opción más avanzada. 
 - Proporciona la máxima precisión en la validación de números móviles
 - Tiene un costo más elevado debido a su alta fiabilidad
 
-*Verificación MNP: Equilibrio entre precisión y costo
+**Verificación MNP:** Equilibrio entre precisión y costo
 
 La búsqueda de portabilidad de números móviles (MNP) ofrece:
 
@@ -27,7 +27,7 @@ La búsqueda de portabilidad de números móviles (MNP) ofrece:
 - Una solución intermedia entre precisión y costo
 - Utilidad como método indirecto de verificación telefónica
 
-*Verificación sintáctica: Opción económica
+**Verificación sintáctica:** Opción económica
 
 Este método básico se centra en:
 
