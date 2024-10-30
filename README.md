@@ -129,3 +129,6 @@ Por cada número válido procesado a través de la API de verificación de núme
       | uan                         | Número de Acceso Universal (Número de Empresa). Puede enrutarse a oficinas específicas, pero permite que se use un número para la empresa.                                                                                                                                    |
       | voicemail                   | Número de teléfono del correo de voz (voicemail)                                                                      |
       | unknown                     | El número no ha podido ser identificado.                                                                              |
+
+
+Para más información visita la sección Web <a href="[https://www.verificaremails.com/docs/index_telefonos.html](https://www.verificaremails.com/validar-numeros-telefono/)">servicios de validación de números de teléfono</a> para conocer as caraterísticas del servicio y tener acceso a los créditos de demo.
