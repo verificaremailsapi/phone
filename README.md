@@ -9,7 +9,7 @@ Disponemos de 3 mecanismos para verificar los números de teléfono. La verifica
 Los 3 mecanismos, utilizan los mismos campos, la principal diferencia es en el número de campos devueltos y la precisión de la formación.
     
 
-**Validación HLR: La más precisa
+**Validación HLR:** La más precisa
 
 La verificación HLR (Home Location Register) es nuestra opción más avanzada. Este método:
 
