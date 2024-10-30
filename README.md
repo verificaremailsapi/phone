@@ -131,4 +131,4 @@ Por cada número válido procesado a través de la API de verificación de núme
       | unknown                     | El número no ha podido ser identificado.                                                                              |
 
 
-Para más información visita la sección Web <a href="https://www.verificaremails.com/validar-numeros-telefono/">servicios de validación de números de teléfono</a> para conocer as caraterísticas del servicio y tener acceso a los créditos de demo.
+Para más información visita la sección Web <a href="https://www.verificaremails.com/validar-numeros-telefono/">validación números de teléfono</a> para conocer as caraterísticas del servicio y tener acceso a los créditos de demo.
