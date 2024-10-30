@@ -2,9 +2,8 @@ openapi: 3.0.0
 info:
   title: Verificar Teléfonos
   description: |
-    # Phone Verification ®
-
-    The Phone Verification API allows real-time validation of the authenticity of a phone number. The <a href="https://www.verificaremails.com/en/validate-phone-numbers/">Phone Verification service</a> is provided by Verificar Emails.
+    # Verificar Teléfonos ®
+    The Phone Verification API allows real-time validation of the authenticity of a phone number. The <a href="https://www.verificaremails.com/en/validate-phone-numbers/">Phone Verification service </a> is provided by Verificar Emails.
 
     We have 3 methods to verify phone numbers:
 
