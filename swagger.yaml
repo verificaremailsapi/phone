@@ -4,7 +4,7 @@ info:
   description: |
     # Verificar Teléfonos ®
 
-    The Phone Verification API allows real-time validation of the authenticity of a phone number. The Phone Verification API allows real-time validation of the authenticity of a phone number.
+    The Phone Verification API allows real-time validation of the authenticity of a phone number. The <a href="https://www.verificaremails.com/en/validate-phone-numbers/">Phone Verification service</a> is provided by Verificar Emails.
 
     We have 3 methods to verify phone numbers:
 
@@ -28,7 +28,7 @@ info:
 
 
     ## Easy Integration
-    We speak your programming language. Calls to our API are available for PHP, Python, Node.js, and .net. You can use <a href="https://www.verificaremails.com/servicio-verificar-emails/como-utilizar-zapier-verificar-emails/" target="_blank">** Zapier integration**</a> to automate phone number validations without the need for programming.
+    We speak your programming language. Calls to our API are available for PHP, Python, Node.js, and .net. You can use <a href="https://www.verificaremails.com/servicio-verificar-emails/como-utilizar-zapier-verificar-emails/" target="_blank">** phone verification using Zapier integration**</a> to automate phone number validations without the need for programming.
     
     If you prefer, you can use <a href="https://www.verificaremails.com/kb/utilizar-postman-para-el-api-de-verificaremails/" target="_blank">**Postman with code examples**</a> for most programming languages.
 
